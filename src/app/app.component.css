@@ -70,6 +70,15 @@ main {
   flex-direction: column;
 }
 
+nav.side-menu {
+  min-width: 150px;
+}
+
+nav.side-menu button{
+  text-align: left;
+  padding: 10px;
+}
+
 .mat-button {
   font-size: 25px;
 }
@@ -92,4 +101,9 @@ footer {
   -webkit-box-direction: normal;
   -ms-flex-direction: column;
   flex-direction: column;
+}
+
+span a {
+  color: #ff6e40;
+  text-decoration: none;
 }
