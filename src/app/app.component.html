@@ -12,62 +12,64 @@
     <md-sidenav-container class="full-width">
       <md-sidenav #sidenav mode="side" opened="false" class="side-menu">
         <nav class="side-menu">
-          <button md-button>
+          <button md-button (click)="setSwitchBool('Home')">
             <md-icon aria-label="home">home</md-icon>
             Home
           </button>
 
-          <button md-button>
+          <button md-button (click)="setSwitchBool('About')">
             <md-icon aria-label="archive">mood</md-icon>
             About
           </button>
 
-          <button md-button>
+          <button md-button (click)="setSwitchBool('Projects')">
             <md-icon aria-label="archive">archive</md-icon>
             Projects
           </button>
         </nav>
       </md-sidenav>
 
+
+
       <div class="sidenav-content">
         <span class="card-container">
-        <md-card class="profile-card">
-          <md-card-header>
-        <div md-card-avatar class="profile-img"></div>
-        <md-card-title>
-          Jun Kawa
-        </md-card-title>
-        <md-card-subtitle>
-          Angular Developer
-        </md-card-subtitle>
-      </md-card-header>
-          <img md-card-image src="assets/img/pexels-photo-552784.jpg" alt="Photo of a mountains">
+          <div [ngSwitch]="switchBool">
+            <div *ngSwitchCase="'Home'">
+              <md-card class="profile-card">
+                <md-card-header>
+                  <div md-card-avatar class="profile-img"></div>
+                  <md-card-title>Jun Kawa</md-card-title>
+                  <md-card-subtitle>Angular Developer</md-card-subtitle>
+                </md-card-header>
+                <img md-card-image src="assets/img/pexels-photo-552784.jpg" alt="Photo of a mountains">
 
-          <md-divider></md-divider>
+                <md-card-content>
+                  <p>Front-End Developer with passion for writing clean and efficient code.</p>
+                </md-card-content>
+              </md-card>
+            </div>
+            <div *ngSwitchCase="'About'">about</div>
+            <div *ngSwitchCase="'Projects'">projects</div>
+            <ng-container *ngSwitchCase="Projects">
+              <!-- use a ng-container to group multiple root nodes -->
+              <div></div>
+              <div></div>
+            </ng-container>
+          </div>
 
-          <md-card-content>
-        <p>
-          Front-End Developer with passion for writing clean and efficient code.
-        </p>
-      </md-card-content>
-        </md-card>
-      </span>
+        </span>
         <footer>
           <md-toolbar color="primary">
-
             <span class="footer-name">© 2017 Jun Kawa</span>
             <span class="spacer"></span>
-
             <span>
               <a href="https://www.linkedin.com/in/ykawa/">LinkedIn</a>
               |
               <a href="https://github.com/hubukinokaze/">GitHub</a>
             </span>
-
           </md-toolbar>
         </footer>
       </div>
-
     </md-sidenav-container>
   </div>
 
