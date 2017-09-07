@@ -8,6 +8,10 @@
   vertical-align: baseline;
   background: transparent;
 }
+
+html, body {
+  height: 100%;
+}
 /*@import "~@angular/material/prebuilt-themes/pink-bluegrey.css";*/
 
 @import "_custom-theme";

@@ -1,76 +1,62 @@
-<main>
+<main class="test">
   <md-toolbar color="primary">
     <button md-button (click)="sidenav.toggle()">
       <md-icon>menu</md-icon>
     </button>
-
     <span>Jun Kawa</span>
-
   </md-toolbar>
 
-  <div class="side-container">
-    <md-sidenav-container class="full-width">
-      <md-sidenav #sidenav mode="side" opened="false" class="side-menu">
-        <nav class="side-menu">
-          <button md-button (click)="setSwitchBool('Home')">
-            <md-icon aria-label="home">home</md-icon>
-            Home
-          </button>
-
-          <button md-button (click)="setSwitchBool('About')">
-            <md-icon aria-label="archive">mood</md-icon>
-            About
-          </button>
-
-          <button md-button (click)="setSwitchBool('Projects')">
-            <md-icon aria-label="archive">archive</md-icon>
-            Projects
+  <div class="spacer">
+    <md-sidenav-container >
+      <md-sidenav #sidenav mode="over" opened="false">
+        <nav class="nav-column" >
+          <button md-button *ngFor="let btn of navButtons" (click)="setSwitchBool(btn.name)" class="nav-button">
+            <md-icon>{{ btn.icon }}</md-icon>
+            {{ btn.name }}
           </button>
         </nav>
       </md-sidenav>
+      <div class="main-content">
+        <div [ngSwitch]="switchBool" class="test">
+          <div *ngSwitchCase="'Home'" class="test">
+            <md-card>
+              <md-card-header>
+                <div md-card-avatar></div>
+                <md-card-title>Jun Kawa</md-card-title>
+                <md-card-subtitle>Angular Developer</md-card-subtitle>
+              </md-card-header>
+              <img md-card-image src="assets/img/pexels-photo-552784.jpg" alt="Photo of a mountains">
 
-
-
-      <div class="sidenav-content">
-        <span class="card-container">
-          <div [ngSwitch]="switchBool">
-            <div *ngSwitchCase="'Home'">
-              <md-card class="profile-card">
+              <md-card-content>
+                <p>Front-End Developer with passion for writing clean and efficient code.</p>
+              </md-card-content>
+            </md-card>
+          </div>
+          <div *ngSwitchCase="'About'" class="spacer2">about</div>
+          <div *ngSwitchCase="'Projects'">
+            <div class="project-container">
+              <md-card *ngFor="let project of projects" class="project-card">
                 <md-card-header>
-                  <div md-card-avatar class="profile-img"></div>
-                  <md-card-title>Jun Kawa</md-card-title>
-                  <md-card-subtitle>Angular Developer</md-card-subtitle>
+                  {{ project.name }}
                 </md-card-header>
-                <img md-card-image src="assets/img/pexels-photo-552784.jpg" alt="Photo of a mountains">
-
-                <md-card-content>
-                  <p>Front-End Developer with passion for writing clean and efficient code.</p>
-                </md-card-content>
+                <md-card-subtitle>
+                  {{ project.description }}
+                </md-card-subtitle>
               </md-card>
             </div>
-            <div *ngSwitchCase="'About'">about</div>
-            <div *ngSwitchCase="'Projects'">projects</div>
-            <ng-container *ngSwitchCase="Projects">
-              <!-- use a ng-container to group multiple root nodes -->
-              <div></div>
-              <div></div>
-            </ng-container>
           </div>
-
-        </span>
-        <footer>
-          <md-toolbar color="primary">
-            <span class="footer-name">© 2017 Jun Kawa</span>
-            <span class="spacer"></span>
-            <span>
+        </div>
+        <md-toolbar color="primary">
+          <span>© 2017 Jun Kawa</span>
+          <span class="spacer"></span>
+          <span>
               <a href="https://www.linkedin.com/in/ykawa/">LinkedIn</a>
               |
               <a href="https://github.com/hubukinokaze/">GitHub</a>
             </span>
-          </md-toolbar>
-        </footer>
+        </md-toolbar>
       </div>
+
     </md-sidenav-container>
   </div>
-
 </main>
