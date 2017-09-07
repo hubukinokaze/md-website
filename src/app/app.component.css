@@ -34,6 +34,30 @@ md-toolbar.footer {
   flex-direction: column;
 }
 
+.test2 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+  -moz-box-orient: vertical;
+  -moz-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.profile-card {
+  min-width: 250px;
+  max-width: 60%;
+  margin: 50px;
+  flex: 1 1 auto;
+}
+
 .nav-column {
   display: -webkit-box;
   display: -webkit-flex;
@@ -91,4 +115,8 @@ md-toolbar.footer {
   max-width: 250px;
   height: 300px;
   margin: 20px;
+}
+
+.footer-name {
+  font-size: 12px;
 }

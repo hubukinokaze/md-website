@@ -20,14 +20,14 @@
       </md-sidenav>
       <div class="main-content">
         <div [ngSwitch]="switchBool" class="test">
-          <div *ngSwitchCase="'Home'" class="test">
-            <md-card>
+          <div *ngSwitchCase="'Home'" class="test2">
+            <md-card class="profile-card" [@slideInOut]="profileState" (click)="animateSlide()">
               <md-card-header>
                 <div md-card-avatar></div>
                 <md-card-title>Jun Kawa</md-card-title>
                 <md-card-subtitle>Angular Developer</md-card-subtitle>
               </md-card-header>
-              <img md-card-image src="assets/img/pexels-photo-552784.jpg" alt="Photo of a mountains">
+              <img md-card-image src="assets/img/profile-card-bg-img.jpg" alt="Photo of a mountains">
 
               <md-card-content>
                 <p>Front-End Developer with passion for writing clean and efficient code.</p>
@@ -49,7 +49,7 @@
           </div>
         </div>
         <md-toolbar class="footer">
-          <span>© 2017 Jun Kawa</span>
+          <span class="footer-name">© 2017 Jun Kawa</span>
           <span class="spacer"></span>
           <span>
               <a href="https://www.linkedin.com/in/ykawa/">LinkedIn</a>
