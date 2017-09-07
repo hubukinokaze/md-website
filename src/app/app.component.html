@@ -22,8 +22,8 @@
         <div [ngSwitch]="switchBool" class="test">
           <div *ngSwitchCase="'Home'" class="test2">
             <md-card class="profile-card" [@slideInOut]="profileState" (click)="animateSlide()">
-              <md-card-header>
-                <div md-card-avatar></div>
+              <md-card-header class="card-header">
+                <div md-card-avatar class="profile-img"></div>
                 <md-card-title>Jun Kawa</md-card-title>
                 <md-card-subtitle>Angular Developer</md-card-subtitle>
               </md-card-header>

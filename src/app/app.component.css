@@ -53,9 +53,34 @@ md-toolbar.footer {
 
 .profile-card {
   min-width: 250px;
-  max-width: 60%;
+  max-width: 45%;
   margin: 50px;
   flex: 1 1 auto;
+}
+
+.card-header {
+  margin-bottom: 15px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: row;
+  -moz-box-orient: vertical;
+  -moz-box-direction: normal;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  align-items: center;
+
+}
+
+.profile-img {
+  background-image: url('../assets/img/profile1.png');
+  background-size: cover;
+  width: 100px;
+  height: 100px;
 }
 
 .nav-column {

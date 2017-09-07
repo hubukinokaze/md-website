@@ -72,7 +72,7 @@ export class AppComponent {
   }
 
   private animateSlide() {
-    this.profileState = (this.profileState === '2' ? '1' : '2');
+    this.profileState = (this.profileState === '1' ? '2' : '1');
   }
 
 }
