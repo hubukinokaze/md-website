@@ -55,7 +55,6 @@ md-toolbar.footer {
   min-width: 250px;
   max-width: 45%;
   margin: 50px;
-  flex: 1 1 auto;
 }
 
 .card-header {

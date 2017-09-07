@@ -37,7 +37,8 @@
           <div *ngSwitchCase="'About'" class="spacer2">about</div>
           <div *ngSwitchCase="'Projects'">
             <div class="project-container">
-              <md-card *ngFor="let project of projects" class="project-card">
+              <md-card *ngFor="let project of projects; let i = index" class="project-card"
+                       [@flyInOut]="projectState[i]" (click)="animateProjects(i)">
                 <md-card-header>
                   {{ project.name }}
                 </md-card-header>
