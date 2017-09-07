@@ -2,10 +2,19 @@
 
 @include mat-core();
 
-$custom-theme-primary: mat-palette($mat-blue-grey);
-$custom-theme-accent: mat-palette($mat-orange, A200, A100, A400);
-$custom-theme-warn: mat-palette($mat-red);
+$primary: mat-palette($mat-blue-grey);
+$accent: mat-palette($mat-deep-orange, A100);
+$warn: mat-palette($mat-red);
 
-$custom-theme: mat-light-theme($custom-theme-primary, $custom-theme-accent, $custom-theme-warn);
+$custom-theme: mat-light-theme($primary, $accent, $warn);
+
+button:hover {
+  color: #34515e;
+  background-color: mat-color($accent);
+}
+
+a:hover {
+  color: mat-color($accent) !important;
+}
 
 @include angular-material-theme($custom-theme);

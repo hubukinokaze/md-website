@@ -7,6 +7,14 @@ a {
   color: white;
 }
 
+md-toolbar.navbar span {
+  padding: 5px;
+}
+
+md-toolbar.footer {
+  background-color: #8eacbb;
+}
+
 .spacer {
   flex: 1 1 auto;
 }

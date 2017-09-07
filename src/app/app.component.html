@@ -1,8 +1,10 @@
 <main class="test">
-  <md-toolbar color="primary">
-    <button md-button (click)="sidenav.toggle()">
+  <md-toolbar color="primary" class="navbar">
+    <span>
+      <button md-button (click)="sidenav.toggle()">
       <md-icon>menu</md-icon>
     </button>
+    </span>
     <span>Jun Kawa</span>
   </md-toolbar>
 
@@ -46,7 +48,7 @@
             </div>
           </div>
         </div>
-        <md-toolbar color="primary">
+        <md-toolbar class="footer">
           <span>© 2017 Jun Kawa</span>
           <span class="spacer"></span>
           <span>
