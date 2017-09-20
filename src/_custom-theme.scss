@@ -8,13 +8,4 @@ $warn: mat-palette($mat-red);
 
 $custom-theme: mat-light-theme($primary, $accent, $warn);
 
-button:hover {
-  color: #34515e;
-  background-color: mat-color($accent);
-}
-
-a:hover {
-  color: mat-color($accent) !important;
-}
-
 @include angular-material-theme($custom-theme);

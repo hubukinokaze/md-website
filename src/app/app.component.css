@@ -7,6 +7,15 @@ a {
   color: white;
 }
 
+a:hover {
+  color: #F6A03D !important;
+}
+
+button:hover {
+  color: #34515e !important;
+  background-color: #F6A03D !important;
+}
+
 md-toolbar.navbar span {
   padding: 5px;
 }
