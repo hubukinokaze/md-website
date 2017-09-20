@@ -5,10 +5,15 @@ main, md-sidenav-container{
 a {
   text-decoration: none;
   color: white;
+  transition:all linear 0.5s;
 }
 
 a:hover {
   color: #F6A03D !important;
+}
+
+button {
+  transition:all linear 0.5s;
 }
 
 button:hover {
@@ -123,11 +128,15 @@ md-toolbar.footer {
   -moz-box-orient: vertical;
   -moz-box-direction: normal;
   -ms-flex-direction: row;
-  flex-direction: row;
-  flex-wrap: wrap;
+  flex-flow: row wrap;
   flex: 1 1 auto;
   min-height: 500px;
   height: 100%;
+}
+
+.project-header {
+  font-size: 25px;
+  padding-bottom: 10px;
 }
 
 .main-content {
@@ -139,17 +148,58 @@ md-toolbar.footer {
   flex-direction: column;
   justify-content: space-between;
   height: 100%;
-
 }
 
 .project-card {
   flex: 1 1 auto;
-  width: 250px;
-  max-width: 250px;
+  width: 300px;
+  max-width: 300px;
   height: 300px;
   margin: 20px;
+  -webkit-transition: all 200ms ease-in;
+  -webkit-transform: scale(1);
+  -ms-transition: all 200ms ease-in;
+  -ms-transform: scale(1);
+  -moz-transition: all 200ms ease-in;
+  -moz-transform: scale(1);
+  transition: all 200ms ease-in;
+  transform: scale(1);
+}
+
+.project-card:hover {
+  box-shadow: 0px 0px 20px #34515e;
+  z-index: 2;
+  -webkit-transition: all 200ms ease-in;
+  -webkit-transform: scale(1.01);
+  -ms-transition: all 200ms ease-in;
+  -ms-transform: scale(1.01);
+  -moz-transition: all 200ms ease-in;
+  -moz-transform: scale(1.01);
+  transition: all 200ms ease-in;
+  transform: scale(1.01);
+}
+
+.language-list {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: flex-start;
+  font-size: 12px;
+  align-items: center;
+}
+
+.language-tags {
+  margin: 3px;
+  padding: 2px 10px 2px 10px;
+  background-color: #F6A03D;
+  -moz-border-radius: 6px;
+  border-radius: 6px; /* standards-compliant: (IE) */
 }
 
 .footer-name {
   font-size: 12px;
 }
+

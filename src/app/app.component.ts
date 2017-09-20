@@ -30,8 +30,18 @@ import { trigger,state,style,transition,animate,keyframes, query, stagger } from
         ], { optional: true })
       ])
     ]),
+    trigger('fadeIn2', [
+      transition('* => *', [
+        query(':enter', [
+          style({ opacity: 0 }),
+          stagger(400, [
+            animate(700, style({ opacity: 1 }))
+          ])
+        ], { optional: true })
+      ])
+    ]),
     trigger('twirl', [
-      transition('* <=> *', [
+      transition('1 <=> -1', [
         animate('1200ms cubic-bezier(.5, 0, .5, 1)', keyframes([
           style({opacity: 1, transform: 'rotateY(0deg)',     offset: 0}),
           style({opacity: 1, transform: 'rotateY(360deg)', offset: 0.2}),
@@ -54,12 +64,14 @@ export class AppComponent {
   private navButtons: any[];
   private projects: any[];
   private projectState: any[];
+  private languages: any[];
 
   constructor(private http: Http) {
     this.githubApi = 'https://api.github.com/users/hubukinokaze/repos';
     this.switchBool = 'Home';
     this.profileState = '1';
     this.projectState = [];
+    this.languages = [];
     this.navButtons = [
       {
         name: "Home",
@@ -98,8 +110,26 @@ export class AppComponent {
     });
   }
 
+  private getLanguages(url){
+    // create headers
+    let headers = new Headers({'Content-Type': 'application/json'});
+
+    // make api call
+    return (this.http.get(url, {headers: headers})).subscribe(data => {
+      // Read the result field from the JSON response.
+      let subLang = [];
+
+      Object.keys(data.json()).forEach(function(key) {
+        subLang.push(key);
+        console.log(key);
+      });
+      this.languages.push(subLang.sort());
+    });
+  }
+
   private populateProjectState() {
     for(let i = 0; i < this.projects.length; i++) {
+      this.getLanguages(this.projects[i].languages_url);
       this.projectState.push(1);
     }
   }
