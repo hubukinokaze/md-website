@@ -40,6 +40,21 @@ import { trigger,state,style,transition,animate,keyframes, query, stagger } from
         ], { optional: true })
       ])
     ]),
+    trigger('fadeIn3', [
+      transition('* => About', [
+        query('*', [
+          style({ opacity: 0 }),
+          animate('500ms cubic-bezier(.95,1.2,1,.88)', keyframes([
+            style({opacity: 0, transform: 'translateY(-350%)', offset: 0}),
+            style({opacity: 1, transform: 'translateY(-200%)', offset: 0.2}),
+            style({opacity: 1, transform: 'translateY(-100%)', offset: 0.4}),
+            style({opacity: 1, transform: 'translateY(-20%)',  offset: 0.7}),
+            style({opacity: 1, transform: 'translateY(15px)',  offset: 0.9}),
+            style({opacity: 1, transform: 'translateY(0)',     offset: 1.0})
+          ]))
+        ], { optional: true })
+      ])
+    ]),
     trigger('twirl', [
       transition('1 <=> -1', [
         animate('1200ms cubic-bezier(.5, 0, .5, 1)', keyframes([

@@ -1,4 +1,4 @@
-<main class="test">
+<main class="column-container">
   <md-toolbar color="primary" class="navbar">
     <span>
       <button md-button (click)="sidenav.toggle()">
@@ -19,12 +19,13 @@
         </nav>
       </md-sidenav>
       <div class="main-content">
-        <div [ngSwitch]="switchBool" class="test">
-          <div *ngSwitchCase="'Home'" class="test2">
+        <div [ngSwitch]="switchBool" class="column-container">
+          <!---------------------Home Template--------------------------------->
+          <div *ngSwitchCase="'Home'" class="column-center-container">
             <md-card class="profile-card" [@slideInOut]="profileState" (click)="animateSlide()">
               <md-card-header class="card-header">
                 <div md-card-avatar class="profile-img"></div>
-                <md-card-title>Jun Kawa</md-card-title>
+                <md-card-title class="card-title">Jun Kawa</md-card-title>
                 <md-card-subtitle>Angular Developer</md-card-subtitle>
               </md-card-header>
               <img md-card-image src="assets/img/profile-card-bg-img.jpg" alt="Photo of a mountains">
@@ -34,14 +35,25 @@
               </md-card-content>
             </md-card>
           </div>
-          <div *ngSwitchCase="'About'" class="spacer2">about</div>
+          <!---------------------About Template--------------------------------->
+          <div *ngSwitchCase="'About'" class="column-center-container">
+            <div class="about-container">
+              <div class="header-container" [@fadeIn3]="switchBool">
+                <h1 class="header-content">About Me</h1>
+              </div>
+              <div class="about-content">
+                other stuff
+              </div>
+            </div>
+          </div>
+          <!---------------------Project Template--------------------------------->
           <div *ngSwitchCase="'Projects'">
             <div class="project-container" [@fadeIn]="projectState?.length">
               <md-card *ngFor="let project of projects; let i = index" class="project-card" [attr.id]="i"
                         (click)="animateProjects(i)" [@twirl]="projectState[i]">
-                <md-card-header class="project-header">
+                <h1 class="card-title">
                   <a href="{{ project.html_url }}">{{ project?.name }}</a>
-                </md-card-header>
+                </h1>
                 <md-card-subtitle>
                   {{ project?.description }}
                 </md-card-subtitle>
@@ -49,9 +61,11 @@
                 <md-list class="language-list" [@fadeIn2]="languages[i]?.length">
                   <div class="language-tags" *ngFor="let language of languages[i]">{{ language }}</div>
                 </md-list>
+                <img md-card-image src="assets/img/angular-stock.jpg" alt="Photo of project">
               </md-card>
             </div>
           </div>
+
         </div>
         <md-toolbar class="footer">
           <span class="footer-name">© 2017 Jun Kawa</span>

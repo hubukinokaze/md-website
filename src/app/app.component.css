@@ -36,7 +36,7 @@ md-toolbar.footer {
   flex: 1 1 auto;
 }
 
-.test {
+.column-container {
   display: -webkit-box;
   display: -webkit-flex;
   display: -moz-box;
@@ -49,9 +49,10 @@ md-toolbar.footer {
   -moz-box-direction: normal;
   -ms-flex-direction: column;
   flex-direction: column;
+  height: 100%;
 }
 
-.test2 {
+.column-center-container {
   display: -webkit-box;
   display: -webkit-flex;
   display: -moz-box;
@@ -66,6 +67,7 @@ md-toolbar.footer {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  height: 100%;
 }
 
 .profile-card {
@@ -89,7 +91,6 @@ md-toolbar.footer {
   -ms-flex-direction: row;
   flex-direction: row;
   align-items: center;
-
 }
 
 .profile-img {
@@ -137,9 +138,8 @@ md-toolbar.footer {
   height: 100%;
 }
 
-.project-header {
+.card-title {
   font-size: 25px;
-  padding-bottom: 10px;
 }
 
 .main-content {
@@ -154,10 +154,13 @@ md-toolbar.footer {
 }
 
 .project-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   flex: 1 1 auto;
   width: 300px;
   max-width: 300px;
-  height: 300px;
+  height: 350px;
   margin: 20px;
   -webkit-transition: all 200ms ease-in;
   -webkit-transform: scale(1);
@@ -203,6 +206,51 @@ md-toolbar.footer {
 }
 
 .footer-name {
-  font-size: 12px;
+  font-size: 14px;
 }
 
+.about-container {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  flex-flow: column;
+  justify-content: flex-start;
+  align-items: stretch;
+  height: 100%;
+  width: 100%;
+}
+
+.header-container {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  flex-flow: row;
+  justify-content: center;
+  align-items: flex-end;
+  width: 100%;
+  min-height: 100px;
+  height: 25%;
+  background-color: #8eacbb;
+}
+
+.about-content {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  flex-flow: row;
+  justify-content: center;
+  align-items: flex-start;
+  width: 100%;
+  padding-top: 32px;
+}
+
+.header-content {
+  font-size: 35px;
+  padding-bottom: 16px;
+}
