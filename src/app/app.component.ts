@@ -9,7 +9,7 @@ import { trigger,state,style,transition,animate,keyframes, query, stagger } from
   styleUrls: ['./app.component.css'],
   animations: [
     trigger('slideInOut', [
-      transition('* <=> *', [
+      transition('1 <=> 2', [
         animate('1200ms cubic-bezier(.5, 0, .5, 1)', keyframes([
           style({opacity: 1, transform: 'translateX(0)',     offset: 0}),
           style({opacity: 1, transform: 'translateX(-15px)', offset: 0.2}),
@@ -43,12 +43,12 @@ import { trigger,state,style,transition,animate,keyframes, query, stagger } from
     trigger('twirl', [
       transition('1 <=> -1', [
         animate('1200ms cubic-bezier(.5, 0, .5, 1)', keyframes([
-          style({opacity: 1, transform: 'rotateY(0deg)',     offset: 0}),
-          style({opacity: 1, transform: 'rotateY(360deg)', offset: 0.2}),
-          style({opacity: 1, transform: 'rotateY(0deg)',  offset: 0.3}),
-          style({opacity: 1, transform: 'rotateY(360deg)', offset: 0.5}),
-          style({opacity: 1, transform: 'rotateY(0deg)',  offset: 0.8}),
-          style({opacity: 1, transform: 'rotateY(360deg)',     offset: 1.0})
+          style({transform: 'rotateY(0deg)',   offset: 0}),
+          style({transform: 'rotateY(360deg)', offset: 0.2}),
+          style({transform: 'rotateY(0deg)',   offset: 0.3}),
+          style({transform: 'rotateY(360deg)', offset: 0.5}),
+          style({transform: 'rotateY(0deg)',   offset: 0.8}),
+          style({transform: 'rotateY(360deg)', offset: 1.0})
         ]))
       ])
     ])
@@ -106,11 +106,12 @@ export class AppComponent {
     return (this.http.get(this.githubApi, {headers: headers})).subscribe(data => {
       // Read the result field from the JSON response.
       this.projects = data.json();
+      console.log(this.projects[0]);
       this.populateProjectState();
     });
   }
 
-  private getLanguages(url){
+  private getLanguages(orderNum, url){
     // create headers
     let headers = new Headers({'Content-Type': 'application/json'});
 
@@ -121,15 +122,14 @@ export class AppComponent {
 
       Object.keys(data.json()).forEach(function(key) {
         subLang.push(key);
-        console.log(key);
       });
-      this.languages.push(subLang.sort());
+      this.languages.splice(orderNum, 0, subLang.sort());
     });
   }
 
   private populateProjectState() {
     for(let i = 0; i < this.projects.length; i++) {
-      this.getLanguages(this.projects[i].languages_url);
+      this.getLanguages(i, this.projects[i].languages_url);
       this.projectState.push(1);
     }
   }

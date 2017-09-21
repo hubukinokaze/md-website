@@ -4,8 +4,11 @@ main, md-sidenav-container{
 
 a {
   text-decoration: none;
-  color: white;
   transition:all linear 0.5s;
+}
+
+span a {
+  color: white;
 }
 
 a:hover {
