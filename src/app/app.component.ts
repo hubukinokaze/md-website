@@ -1,5 +1,5 @@
 import { Component, ViewChild  } from '@angular/core';
-import {Http, Headers} from "@angular/http";
+import { GithubService } from './services/GithubService';
 import { MdMenu, MdToolbar, MdButton, MdIcon, MdSidenav} from '@angular/material';
 import { trigger,state,style,transition,animate,keyframes, query, stagger } from '@angular/animations';
 
@@ -66,8 +66,7 @@ export class AppComponent {
   private projectState: any[];
   private languages: any[];
 
-  constructor(private http: Http) {
-    this.githubApi = 'https://api.github.com/users/hubukinokaze/repos';
+  constructor(private github: GithubService) {
     this.switchBool = 'Home';
     this.profileState = '1';
     this.projectState = [];
@@ -98,12 +97,7 @@ export class AppComponent {
 
   private getYourRepos() {
     this.projects = [];
-
-    // create headers
-    let headers = new Headers({'Content-Type': 'application/json'});
-
-    // make api call
-    return (this.http.get(this.githubApi, {headers: headers})).subscribe(data => {
+    this.github.getYourRepos().subscribe(data => {
       // Read the result field from the JSON response.
       this.projects = data.json();
       console.log(this.projects[0]);
@@ -112,11 +106,8 @@ export class AppComponent {
   }
 
   private getLanguages(orderNum, url){
-    // create headers
-    let headers = new Headers({'Content-Type': 'application/json'});
-
     // make api call
-    return (this.http.get(url, {headers: headers})).subscribe(data => {
+    this.github.getLanguages(url).subscribe(data => {
       // Read the result field from the JSON response.
       let subLang = [];
 

@@ -7,6 +7,7 @@ import {
   MdButtonModule, MdCardModule, MdMenuModule, MdToolbarModule, MdIconModule, MdSidenavModule, MdProgressBarModule, MdGridListModule,
   MdListModule, MdList
 } from '@angular/material';
+import { GithubService } from './services/GithubService';
 import 'hammerjs';
 
 import { AppComponent } from './app.component';
@@ -30,7 +31,7 @@ import { AppComponent } from './app.component';
     MdGridListModule,
     MdListModule
   ],
-  providers: [],
+  providers: [GithubService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
