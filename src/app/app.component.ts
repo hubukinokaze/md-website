@@ -74,9 +74,9 @@ export class AppComponent {
   @ViewChild('sidenav') sidenav: MdSidenav;
   private githubApi: string;
   private profileState: string;
-  private switchBool: string;
+  public switchBool: string;
 
-  private navButtons: any[];
+  public navButtons: any[];
   private projects: any[];
   private projectState: any[];
   private languages: any[];
