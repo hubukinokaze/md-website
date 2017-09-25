@@ -2,7 +2,7 @@
 
 This project was generated with Angular Cli 1.4.3.
 
-Welcome to my [website](jun-kawa.herokuapp.com) showcasing my projects laid out nice and neat using [Angular Material](https://material.angular.io/).
+Welcome to my [website](https://jun-kawa.herokuapp.com) showcasing my projects laid out nice and neat using [Angular Material](https://material.angular.io/).
 
 ## Development server
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
