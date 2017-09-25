@@ -1,7 +1,7 @@
 import { Component, ViewChild  } from '@angular/core';
 import { GithubService } from './services/GithubService';
 import { MdMenu, MdToolbar, MdButton, MdIcon, MdSidenav} from '@angular/material';
-import { trigger,state,style,transition,animate,keyframes, query, stagger } from '@angular/animations';
+import { trigger,style,transition,animate,keyframes, query, stagger } from '@angular/animations';
 
 @Component({
   selector: 'app-root',
