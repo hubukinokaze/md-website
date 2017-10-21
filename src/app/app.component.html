@@ -12,90 +12,16 @@
     <md-sidenav-container >
       <md-sidenav #sidenav mode="over" opened="false">
         <nav class="nav-column" >
-          <button md-button *ngFor="let btn of navButtons" (click)="setSwitchBool(btn.name)" class="nav-button">
+          <button md-button *ngFor="let btn of navButtons" class="nav-button" (click)="navToggle(btn.name)" [routerLink]="btn.route" routerLinkActive="active">
             <md-icon>{{ btn.icon }}</md-icon>
             {{ btn.name }}
           </button>
         </nav>
       </md-sidenav>
       <div class="main-content">
-        <div [ngSwitch]="switchBool" class="column-container">
-          <!---------------------Home Template--------------------------------->
-          <div *ngSwitchCase="'Home'" class="column-center-container">
-            <md-card class="profile-card" [@slideInOut]="profileState" (click)="animateSlide()">
-              <md-card-header class="card-header">
-                <div md-card-avatar class="profile-img"></div>
-                <md-card-title class="card-title">Jun Kawa</md-card-title>
-                <md-card-subtitle>Angular Developer</md-card-subtitle>
-              </md-card-header>
-              <img md-card-image src="assets/img/profile-card-bg-img.jpg">
-
-              <md-card-content>
-                <p>Front-End Developer with passion for writing clean and efficient code.</p>
-              </md-card-content>
-            </md-card>
-          </div>
-          <!---------------------About Template--------------------------------->
-          <div *ngSwitchCase="'About'" class="column-center-container">
-            <div class="about-container">
-              <div class="header-container" [@fadeIn3]="switchBool">
-                <h1 class="header-content">About Me</h1>
-              </div>
-              <div class="about-content">
-                <div class="about-content-width">
-                  <div class="about-main">
-                    <p>
-                      Santa Ana, CA<br>
-                      yudai.j.kawa@gmail.com
-                    </p>
-                  </div>
-
-                  <hr class="style1"/>
-
-                  <h3>Software Engineer</h3>
-                  <p>Passionate and motivated UC Irvine graduate looking to collaborate with like-minded professionals and transform the future of UI/UX as an entry-level developer.</p>
-
-                  <h3>Education</h3>
-                  <p>
-                    University of California, Irvine | Irvine, CA	June 2016<br>
-                    Bachelor of Science in Informatics – Human Computer Interaction
-                  </p>
-
-                  <h3>Technologies</h3>
-                  <div>
-                    <img class="tech-images" src="../assets/img/skills/angular.png">
-                    <img class="tech-images" src="../assets/img/skills/html.png">
-                    <img class="tech-images" src="../assets/img/skills/js.png">
-                    <img class="tech-images" src="../assets/img/skills/css.png">
-                    <img class="tech-images" src="../assets/img/skills/node.png">
-                    <img class="tech-images" src="../assets/img/skills/ionic.png">
-                    <img class="tech-images" src="../assets/img/skills/nativescript.png">
-                    <img class="tech-images" src="../assets/img/skills/electron.png">
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <!---------------------Project Template--------------------------------->
-          <div *ngSwitchCase="'Projects'">
-            <div class="project-container" [@fadeIn]="projectState?.length">
-              <md-card *ngFor="let project of projects; let i = index" class="project-card" [attr.id]="i"
-                        (click)="animateProjects(i)" [@twirl]="projectState[i]">
-                <h1 class="card-title">
-                  <a href="{{ project.html_url }}">{{ project?.name }}</a>
-                </h1>
-                <md-card-subtitle>
-                  {{ project?.description }}
-                </md-card-subtitle>
-                <md-divider></md-divider>
-                <md-list class="language-list" [@fadeIn2]="languages[i]?.length">
-                  <div class="language-tags" *ngFor="let language of languages[i]">{{ language }}</div>
-                </md-list>
-                <img md-card-image src="assets/img/angular-stock.jpg">
-              </md-card>
-            </div>
-          </div>
-
+        <!--<div [ngSwitch]="switchBool" class="column-container">-->
+        <div class="column-container">
+          <router-outlet></router-outlet>
         </div>
         <md-toolbar class="footer">
           <span class="footer-name">© 2017 Jun Kawa</span>

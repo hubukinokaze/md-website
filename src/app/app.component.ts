@@ -6,75 +6,12 @@ import { trigger,style,transition,animate,keyframes, query, stagger } from '@ang
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css'],
-  animations: [
-    trigger('slideInOut', [
-      transition('1 <=> 2', [
-        animate('1200ms cubic-bezier(.5, 0, .5, 1)', keyframes([
-          style({opacity: 1, transform: 'translateX(0)',     offset: 0}),
-          style({opacity: 1, transform: 'translateX(-15px)', offset: 0.2}),
-          style({opacity: 0, transform: 'translateX(100%)',  offset: 0.3}),
-          style({opacity: 0, transform: 'translateX(-100%)', offset: 0.5}),
-          style({opacity: 1, transform: 'translateX(15px)',  offset: 0.8}),
-          style({opacity: 1, transform: 'translateX(0)',     offset: 1.0})
-        ]))
-      ])
-    ]),
-    trigger('fadeIn', [
-      transition('* => *', [
-        query(':enter', [
-          style({ opacity: 0 }),
-          stagger(100, [
-            animate(500, style({ opacity: 1 }))
-          ])
-        ], { optional: true })
-      ])
-    ]),
-    trigger('fadeIn2', [
-      transition('* => *', [
-        query(':enter', [
-          style({ opacity: 0 }),
-          stagger(400, [
-            animate(700, style({ opacity: 1 }))
-          ])
-        ], { optional: true })
-      ])
-    ]),
-    trigger('fadeIn3', [
-      transition('* => About', [
-        query('*', [
-          style({ opacity: 0 }),
-          animate('500ms cubic-bezier(.95,1.2,1,.88)', keyframes([
-            style({opacity: 0, transform: 'translateY(-350%)', offset: 0}),
-            style({opacity: 1, transform: 'translateY(-200%)', offset: 0.2}),
-            style({opacity: 1, transform: 'translateY(-100%)', offset: 0.4}),
-            style({opacity: 1, transform: 'translateY(-20%)',  offset: 0.7}),
-            style({opacity: 1, transform: 'translateY(15px)',  offset: 0.9}),
-            style({opacity: 1, transform: 'translateY(0)',     offset: 1.0})
-          ]))
-        ], { optional: true })
-      ])
-    ]),
-    trigger('twirl', [
-      transition('1 <=> -1', [
-        animate('1200ms cubic-bezier(.5, 0, .5, 1)', keyframes([
-          style({transform: 'rotateY(0deg)',   offset: 0}),
-          style({transform: 'rotateY(360deg)', offset: 0.2}),
-          style({transform: 'rotateY(0deg)',   offset: 0.3}),
-          style({transform: 'rotateY(360deg)', offset: 0.5}),
-          style({transform: 'rotateY(0deg)',   offset: 0.8}),
-          style({transform: 'rotateY(360deg)', offset: 1.0})
-        ]))
-      ])
-    ])
-  ]
+  styleUrls: ['./app.component.css']
 })
 
 export class AppComponent {
   @ViewChild('sidenav') sidenav: MdSidenav;
   private githubApi: string;
-  private profileState: string;
-  public switchBool: string;
 
   public navButtons: any[];
   private projects: any[];
@@ -82,31 +19,31 @@ export class AppComponent {
   private languages: any[];
 
   constructor(private github: GithubService) {
-    this.switchBool = 'Home';
-    this.profileState = '1';
     this.projectState = [];
     this.languages = [];
     this.navButtons = [
       {
         name: "Home",
-        icon: "home"
+        icon: "home",
+        route: "/home"
       },
       {
         name: "About",
-        icon: "mood"
+        icon: "mood",
+        route: "/about"
       },
       {
         name: "Projects",
-        icon: "archive"
+        icon: "archive",
+        route: "/projects"
       }
     ];
   }
 
-  private setSwitchBool(page) {
+  private navToggle(page) {
     if (page === "Projects") {
       this.getYourRepos();
     }
-    this.switchBool = page;
     this.sidenav.toggle();
   }
 
@@ -138,10 +75,6 @@ export class AppComponent {
       this.getLanguages(i, this.projects[i].languages_url);
       this.projectState.push(1);
     }
-  }
-
-  private animateSlide() {
-    this.profileState = (this.profileState === '1' ? '2' : '1');
   }
 
   private animateProjects(i) {
