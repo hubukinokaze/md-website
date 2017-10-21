@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import {animate, keyframes, query, stagger, style, transition, trigger} from '@angular/animations';
+import { GithubService } from '../../services/GithubService';
+import { animate, keyframes, query, stagger, style, transition, trigger } from '@angular/animations';
 
 @Component({
   styleUrls: ['../../app.component.css'],
@@ -58,4 +59,52 @@ import {animate, keyframes, query, stagger, style, transition, trigger} from '@a
     ])
   ]
 })
-export class ProjectsComponent { }
+export class ProjectsComponent {
+  private projects: any[];
+  private projectState: any[];
+  private languages: any[];
+
+  constructor(public github: GithubService){
+    this.projectState = [];
+    this.languages = [];
+  }
+
+  ngOnInit(){
+    this.getYourRepos();
+  }
+
+  private getYourRepos() {
+    this.projects = [];
+    this.github.getYourRepos().subscribe(data => {
+      // Read the result field from the JSON response.
+      this.projects = data.json();
+      console.log(this.projects[0]);
+      this.populateProjectState();
+    });
+  }
+
+  private getLanguages(orderNum, url){
+    // make api call
+    this.github.getLanguages(url).subscribe(data => {
+      // Read the result field from the JSON response.
+      let subLang = [];
+
+      Object.keys(data.json()).forEach(function(key) {
+        subLang.push(key);
+      });
+      this.languages.splice(orderNum, 0, subLang.sort());
+    });
+  }
+
+  private populateProjectState() {
+    for(let i = 0; i < this.projects.length; i++) {
+      this.getLanguages(i, this.projects[i].languages_url);
+      this.projectState.push(1);
+    }
+  }
+
+  private animateProjects(i) {
+    this.projectState[i] = (this.projectState[i] === 1 ? -1 : 1);
+    console.log(i,this.projectState[i]);
+  }
+}

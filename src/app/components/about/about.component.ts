@@ -6,7 +6,7 @@ import {animate, keyframes, query, style, transition, trigger} from '@angular/an
   template: `
     <div class="column-center-container">
       <div class="about-container">
-        <div class="header-container" [@fadeIn3]="profileState">
+        <div class="header-container" @fadeIn3>
           <h1 class="header-content">About Me</h1>
         </div>
         <div class="about-content">
@@ -47,7 +47,7 @@ import {animate, keyframes, query, style, transition, trigger} from '@angular/an
   `,
   animations: [
     trigger('fadeIn3', [
-      transition('* => profileState', [
+      transition(':enter', [
         query('*', [
           style({ opacity: 0 }),
           animate('500ms cubic-bezier(.95,1.2,1,.88)', keyframes([
