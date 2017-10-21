@@ -35,13 +35,13 @@ import { animate, keyframes, style, transition, trigger } from '@angular/animati
   ]
 })
 export class HomeComponent {
-  private profileState: string;
+  public profileState: string;
 
   constructor () {
     this.profileState = '1';
   }
 
-  private animateSlide() {
+  public animateSlide() {
     this.profileState = (this.profileState === '1' ? '2' : '1');
   }
 }

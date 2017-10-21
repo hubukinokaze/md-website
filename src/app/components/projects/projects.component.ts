@@ -60,9 +60,9 @@ import { animate, keyframes, query, stagger, style, transition, trigger } from '
   ]
 })
 export class ProjectsComponent {
-  private projects: any[];
-  private projectState: any[];
-  private languages: any[];
+  public projects: any[];
+  public projectState: any[];
+  public languages: any[];
 
   constructor(public github: GithubService){
     this.projectState = [];
@@ -96,14 +96,14 @@ export class ProjectsComponent {
     });
   }
 
-  private populateProjectState() {
+  public populateProjectState() {
     for(let i = 0; i < this.projects.length; i++) {
       this.getLanguages(i, this.projects[i].languages_url);
       this.projectState.push(1);
     }
   }
 
-  private animateProjects(i) {
+  public animateProjects(i) {
     this.projectState[i] = (this.projectState[i] === 1 ? -1 : 1);
     console.log(i,this.projectState[i]);
   }
