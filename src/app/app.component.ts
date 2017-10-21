@@ -17,17 +17,17 @@ export class AppComponent {
       {
         name: "Home",
         icon: "home",
-        route: "/home"
+        route: "home"
       },
       {
         name: "About",
         icon: "mood",
-        route: "/about"
+        route: "about"
       },
       {
         name: "Projects",
         icon: "archive",
-        route: "/projects"
+        route: "projects"
       }
     ];
   }

@@ -19,7 +19,7 @@ import { animate, keyframes, query, stagger, style, transition, trigger } from '
           <md-list class="language-list" [@fadeIn2]="languages[i]?.length">
             <div class="language-tags" *ngFor="let language of languages[i]">{{ language }}</div>
           </md-list>
-          <img md-card-image src="../../assets/img/angular-stock.jpg">
+          <img md-card-image src="../../assets/img/projects/angular-stock.jpg">
         </md-card>
       </div>
     </div>
