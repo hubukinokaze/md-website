@@ -1,7 +1,6 @@
 import { Component, ViewChild  } from '@angular/core';
 import { GithubService } from './services/GithubService';
-import { MdMenu, MdToolbar, MdButton, MdIcon, MdSidenav} from '@angular/material';
-import { trigger,style,transition,animate,keyframes, query, stagger } from '@angular/animations';
+import { MdSidenav } from '@angular/material';
 
 @Component({
   selector: 'app-root',
@@ -34,9 +33,6 @@ export class AppComponent {
   }
 
   private navToggle(page) {
-    if (page === "Projects") {
-      this.getYourRepos();
-    }
     this.sidenav.toggle();
   }
 

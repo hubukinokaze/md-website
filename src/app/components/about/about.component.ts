@@ -1,5 +1,5 @@
-import {Component} from '@angular/core';
-import {animate, keyframes, query, style, transition, trigger} from '@angular/animations';
+import { Component } from '@angular/core';
+import { animate, keyframes, query, style, transition, trigger } from '@angular/animations';
 
 @Component({
   styleUrls: ['../../app.component.css'],
