@@ -18,7 +18,7 @@ import { HomeComponent } from './components/home/home.component';
 import { AboutComponent } from './components/about/about.component';
 import { ProjectsComponent } from './components/projects/projects.component';
 
-const appRoutes: Routes = [
+const routes: Routes = [
   {
     path: 'home',
     component: HomeComponent
@@ -60,13 +60,22 @@ const appRoutes: Routes = [
     MdGridListModule,
     MdListModule,
     RouterModule.forRoot(
-      appRoutes,
-      { enableTracing: true } // <-- debugging purposes only
+      routes,
+      {
+        enableTracing: true, // <-- debugging purposes only
+        useHash: true
+      }
     )
   ],
-  providers: [GithubService],
+  exports: [
+    RouterModule
+  ],
+  providers: [
+    GithubService
+  ],
   bootstrap: [
     AppComponent
   ]
 })
 export class AppModule { }
+
