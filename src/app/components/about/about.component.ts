@@ -13,7 +13,7 @@ import { animate, keyframes, query, style, transition, trigger } from '@angular/
           <div class="about-content-width">
             <div class="about-main">
               <p>
-                Santa Ana, CA<br>
+                Irvine, CA<br>
                 yudai.j.kawa@gmail.com
               </p>
             </div>
