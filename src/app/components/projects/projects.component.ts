@@ -5,7 +5,7 @@ import {animate, keyframes, query, stagger, style, transition, trigger} from '@a
 @Component({
   styleUrls: ['../../app.component.css'],
   template: `
-    <div>
+    <div class="projects-container">
       <mat-progress-bar mode="indeterminate" *ngIf="!isLoaded"></mat-progress-bar>
       <div class="project-container" [@fadeIn]="projectState?.length">
         <mat-card *ngFor="let project of projects; let i = index" class="project-card" [attr.id]="i"

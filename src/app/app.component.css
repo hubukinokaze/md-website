@@ -286,6 +286,6 @@ p {
   max-width: 70px;
 }
 
-.mat-card-image {
+.projects-container .mat-card-image {
   height: 7em;
 }
