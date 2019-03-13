@@ -1,6 +1,6 @@
 import { Component, ViewChild  } from '@angular/core';
 import { GithubService } from './services/GithubService';
-import { MdSidenav } from '@angular/material';
+import { MatSidenav } from '@angular/material';
 
 @Component({
   selector: 'app-root',
@@ -9,7 +9,7 @@ import { MdSidenav } from '@angular/material';
 })
 
 export class AppComponent {
-  @ViewChild('sidenav') sidenav: MdSidenav;
+  @ViewChild('sidenav') sidenav: MatSidenav;
   public navButtons: any[];
 
   constructor(private github: GithubService) {
