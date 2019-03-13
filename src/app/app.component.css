@@ -285,3 +285,7 @@ p {
   margin: 5px;
   max-width: 70px;
 }
+
+.mat-card-image {
+  height: 7em;
+}
