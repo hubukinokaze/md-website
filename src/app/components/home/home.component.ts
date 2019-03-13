@@ -5,18 +5,18 @@ import { animate, keyframes, style, transition, trigger } from '@angular/animati
   styleUrls: ['../../app.component.css'],
   template: `
     <div class="column-center-container">
-      <md-card class="profile-card" [@slideInOut]="profileState" (click)="animateSlide()">
-        <md-card-header class="card-header">
-          <div md-card-avatar class="profile-img"></div>
-          <md-card-title class="card-title">Jun Kawa</md-card-title>
-          <md-card-subtitle>Angular Developer</md-card-subtitle>
-        </md-card-header>
-        <img md-card-image src="../../assets/img/profile-card-bg-img.jpg">
+      <mat-card class="profile-card" [@slideInOut]="profileState" (click)="animateSlide()">
+        <mat-card-header class="card-header">
+          <div mat-card-avatar class="profile-img"></div>
+          <mat-card-title class="card-title">Jun Kawa</mat-card-title>
+          <mat-card-subtitle>Angular Developer</mat-card-subtitle>
+        </mat-card-header>
+        <img mat-card-image src="../../assets/img/profile-card-bg-img.jpg">
 
-        <md-card-content>
+        <mat-card-content>
           <p>Front-End Developer with passion for writing clean and efficient code.</p>
-        </md-card-content>
-      </md-card>
+        </mat-card-content>
+      </mat-card>
     </div>
   `,
   animations: [

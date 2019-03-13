@@ -40,6 +40,9 @@ import { animate, keyframes, query, style, transition, trigger } from '@angular/
               <img class="tech-images" src="../../assets/img/skills/nativescript.png">
               <img class="tech-images" src="../../assets/img/skills/electron.png">
             </div>
+
+            <h3>Résumé</h3>
+            <button mat-raised-button><a href="./assets/files/Yudai-Jun-Kawa-Resume.pdf">Download</a></button>
           </div>
         </div>
       </div>

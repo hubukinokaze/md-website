@@ -1,29 +1,29 @@
 <main class="column-container">
-  <md-toolbar color="primary" class="navbar">
+  <mat-toolbar color="primary" class="navbar">
     <span>
-      <button md-button (click)="sidenav.toggle()">
-      <md-icon>menu</md-icon>
+      <button mat-button (click)="sidenav.toggle()">
+      <mat-icon>menu</mat-icon>
     </button>
     </span>
     <span>Jun Kawa</span>
-  </md-toolbar>
+  </mat-toolbar>
 
   <div class="spacer">
-    <md-sidenav-container >
-      <md-sidenav #sidenav mode="over" opened="false">
+    <mat-sidenav-container >
+      <mat-sidenav #sidenav mode="over" opened="false">
         <nav class="nav-column" >
-          <button md-button *ngFor="let btn of navButtons" class="nav-button" (click)="navToggle(btn.name)" [routerLink]="btn.route" routerLinkActive="active">
-            <md-icon>{{ btn.icon }}</md-icon>
+          <button mat-button *ngFor="let btn of navButtons" class="nav-button" (click)="navToggle(btn.name)" [routerLink]="btn.route" routerLinkActive="active">
+            <mat-icon>{{ btn.icon }}</mat-icon>
             {{ btn.name }}
           </button>
         </nav>
-      </md-sidenav>
+      </mat-sidenav>
       <div class="main-content">
         <!--<div [ngSwitch]="switchBool" class="column-container">-->
         <div class="column-container">
           <router-outlet></router-outlet>
         </div>
-        <md-toolbar class="footer">
+        <mat-toolbar class="footer">
           <span class="footer-name">© 2017 Jun Kawa</span>
           <span class="spacer"></span>
           <span>
@@ -31,9 +31,9 @@
               |
               <a href="https://github.com/hubukinokaze/">GitHub</a>
             </span>
-        </md-toolbar>
+        </mat-toolbar>
       </div>
 
-    </md-sidenav-container>
+    </mat-sidenav-container>
   </div>
 </main>

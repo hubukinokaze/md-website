@@ -1,6 +1,6 @@
 import { MdWebsitePage } from './app.po';
 
-describe('md-website App', function() {
+describe('mat-website App', function() {
   let page: MdWebsitePage;
 
   beforeEach(() => {
