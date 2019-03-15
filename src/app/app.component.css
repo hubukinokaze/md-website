@@ -289,3 +289,7 @@ p {
 .projects-container .mat-card-image {
   height: 7em;
 }
+
+.column-center-container span {
+  font-size: 1.1em;
+}

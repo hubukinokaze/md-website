@@ -8,13 +8,13 @@ import { animate, keyframes, style, transition, trigger } from '@angular/animati
       <mat-card class="profile-card" [@slideInOut]="profileState" (click)="animateSlide()">
         <mat-card-header class="card-header">
           <div mat-card-avatar class="profile-img"></div>
-          <mat-card-title class="card-title">Jun Kawa</mat-card-title>
-          <mat-card-subtitle>Angular Developer</mat-card-subtitle>
+          <mat-card-title class="card-title">Yudai Jun Kawa</mat-card-title>
+          <mat-card-subtitle>Software Developer</mat-card-subtitle>
         </mat-card-header>
         <img mat-card-image src="../../assets/img/profile-card-bg-img.jpg">
 
         <mat-card-content>
-          <p>Front-End Developer with passion for writing clean and efficient code.</p>
+          <span>{{ introLabel }}</span> <span [ngClass]="introHook['style']">{{ introHook['name'] }}</span>
         </mat-card-content>
       </mat-card>
     </div>
@@ -36,9 +36,43 @@ import { animate, keyframes, style, transition, trigger } from '@angular/animati
 })
 export class HomeComponent {
   public profileState: string;
+  public hooks: Array<{}> = [];
+  public hookIndex: number = 0;
+
+  // labels
+  public introLabel: string;
+  public introHook: any;
 
   constructor () {
     this.profileState = '1';
+    this.introLabel = 'Front-End Developer with a passion for ';
+    this.hooks = [
+      {
+        name: 'writing clean and efficient code.',
+        style: 'color-blue'
+      }, {
+        name: 'solving challenging code.',
+        style: 'color-red'
+      }, {
+        name: 'building with new technologies.',
+        style: 'color-gray'
+      }, {
+        name: 'taking down big problems.',
+        style: 'color-brown'
+      }
+    ];
+    this.introHook = this.hooks[this.hookIndex];
+
+    this.createIntroInterval();
+  }
+
+  private createIntroInterval() {
+    // repeat with the interval of 3 seconds
+    setInterval(() => {
+      this.hookIndex++;
+      this.hookIndex = this.hookIndex % this.hooks.length;
+      this.introHook = this.hooks[this.hookIndex];
+    }, 3000);
   }
 
   public animateSlide() {

@@ -20,25 +20,25 @@ import { animate, keyframes, query, style, transition, trigger } from '@angular/
 
             <hr class="style1"/>
 
-            <h3>Software Engineer</h3>
-            <p>Passionate and motivated UC Irvine graduate looking to collaborate with like-minded professionals and transform the future of UI/UX as an entry-level developer.</p>
+            <h3>Software Developer</h3>
+            <p>{{ statementLabel }}</p>
 
             <h3>Education</h3>
             <p>
               University of California, Irvine | Irvine, CA	June 2016<br>
-              Bachelor of Science in Informatics – Human Computer Interaction
+              Bachelor of Science in Informatics – Human-Computer Interaction
             </p>
 
             <h3>Technologies</h3>
             <div>
-              <img class="tech-images" src="../../assets/img/skills/angular.png">
-              <img class="tech-images" src="../../assets/img/skills/html.png">
-              <img class="tech-images" src="../../assets/img/skills/js.png">
-              <img class="tech-images" src="../../assets/img/skills/css.png">
-              <img class="tech-images" src="../../assets/img/skills/node.png">
-              <img class="tech-images" src="../../assets/img/skills/ionic.png">
-              <img class="tech-images" src="../../assets/img/skills/nativescript.png">
-              <img class="tech-images" src="../../assets/img/skills/electron.png">
+              <img class="tech-images" src="./assets/img/skills/angular.png">
+              <img class="tech-images" src="./assets/img/skills/html.png">
+              <img class="tech-images" src="./assets/img/skills/js.png">
+              <img class="tech-images" src="./assets/img/skills/css.png">
+              <img class="tech-images" src="./assets/img/skills/node.png">
+              <img class="tech-images" src="./assets/img/skills/ionic.png">
+              <img class="tech-images" src="./assets/img/skills/nativescript.png">
+              <img class="tech-images" src="./assets/img/skills/electron.png">
             </div>
 
             <h3>Résumé</h3>
@@ -68,9 +68,12 @@ import { animate, keyframes, query, style, transition, trigger } from '@angular/
 })
 export class AboutComponent {
   private profileState: string;
+  public statementLabel: string;
 
   constructor () {
     this.profileState = '1';
+    this.statementLabel = 'Passionate and motivated software developer ready to solve challenging,\n' +
+      'real-world issues while delivering enhanced UI/UX solutions.'
   }
 
   private animateSlide() {
